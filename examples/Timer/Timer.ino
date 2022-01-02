@@ -40,10 +40,9 @@ void setup() {
     Timer.setTimeout([]() -> void {
         Timer.clearTimeout(timeoutId2);
         Serial.println("\n[Timeout-2]: Timeout Event 2 with id [" + String(timeoutId2) + "] has been cancelled.");
-    },
-                     3000);
+    }, 3000);
 }
 
 void loop() {
-    Timer.run();
+    Timer.run(); //You do not need to call this if you are using ESP32
 }

@@ -51,6 +51,6 @@ void setup() {
 }
 
 void loop() {
-    Timer.run();
+    Timer.run(); //You do not need to call this if you are using ESP32
 }
 ```

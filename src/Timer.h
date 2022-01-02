@@ -24,6 +24,9 @@ class DTimer {
     void clearInterval(uint32_t eventId);
     void clearTimeout(uint32_t eventId);
     void run();
+#ifdef ESP32
+    void dontCall();
+#endif
 
    private:
     struct RegularEvent {
@@ -56,6 +59,12 @@ class DTimer {
     bool regularFlag;
     bool intervalFlag;
     bool timeoutFlag;
+
+#ifdef ESP32
+    bool registered = false;
+    TaskHandle_t handler = NULL;
+    static void pollTask(void*);
+#endif
 };
 
 extern DTimer Timer;
